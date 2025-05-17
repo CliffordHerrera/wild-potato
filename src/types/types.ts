@@ -10,4 +10,3 @@ export type Product = {
       count: number,
     }
 };
-

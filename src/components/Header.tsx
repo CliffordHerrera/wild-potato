@@ -1,12 +1,13 @@
-import {  useState } from "react";
+import {  useState} from "react";
 import { Link } from "react-router";
+import { useFilterDispatch } from "./contex/shopContext";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [input, setInput] = useState<string>("");
     const handleClick = () => {
         setIsOpen(!isOpen);
     }
+    const dispatch = useFilterDispatch();
     return (
         <div className="flex flex-row items-start justify-evenly w-screen bg-gradient-to-tr from-cyan-500 to-purple-500 p-4 top-0 fixed">
             <Link to="/shop" className="text-3xl font-bold text-white font-sans">Wildpotatoes</Link>
@@ -16,8 +17,7 @@ export default function Header() {
             <input 
             type="text"
             placeholder="Find among Popapoes"
-            onChange={(e => setInput(e.target.value))}
-            value={input}
+            onChange={(e) => dispatch({ type: "SET_QUERY", payload: e.target.value })}
             className="bg-slate-300 hover:bg-white border rounded w-full h-10"
              />
              <Link to="/auth" >

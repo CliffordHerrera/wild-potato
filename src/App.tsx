@@ -5,6 +5,7 @@ import Header from "./components/Header"
 import CartPage from "./components/CartPage";
 import ShopPage from './components/ShopPage';
 import type { Product } from './types/types';
+import { FilterProvider } from './components/contex/shopContext';
 //import ProductFetcher from "./components/ProdFetcher";
 //import LoginForm from "./components/LoginForm";
 
@@ -22,7 +23,8 @@ function App() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-gradient-to-tr from-white to-purple-300'>
+    <FilterProvider>
+      <div className='flex flex-col items-center justify-center h-screen bg-gradient-to-tr from-white to-purple-300'>
       <Header />
       <Routes>
         <Route
@@ -39,6 +41,8 @@ function App() {
         />*/}
       </Routes>
     </div>
+    </FilterProvider>
+    
   )
 }
 
