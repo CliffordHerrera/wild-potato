@@ -25,7 +25,7 @@ function App() {
   return (
     <FilterProvider>
       <div className='flex flex-col items-center justify-center h-screen bg-gradient-to-tr from-white to-purple-300'>
-      <Header />
+      <Header cart={cart}/>
       <Routes>
         <Route
           path="/shop"
